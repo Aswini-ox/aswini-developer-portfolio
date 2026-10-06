@@ -1,0 +1,23 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-ink text-slate-300 antialiased; }
+:focus-visible { outline: 2px solid #22d3ee; outline-offset: 3px; border-radius: 6px; }
+.glass { background: rgba(13,15,24,.6); backdrop-filter: blur(14px); border: 1px solid theme(colors.line); }
+.grad-text { background: linear-gradient(90deg,#4f7cff,#8b5cf6 55%,#22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.btn { @apply inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition duration-200; }
+.btn-primary { @apply btn bg-gradient-to-r from-electric to-violet text-white hover:shadow-[0_0_28px_rgba(79,124,255,.45)] hover:-translate-y-0.5; }
+.btn-ghost { @apply btn glass text-slate-200 hover:border-cyan/50 hover:text-white; }
+.section { @apply mx-auto max-w-6xl px-5 py-20 md:py-28; }
+.h2 { @apply font-display text-3xl font-semibold tracking-tight text-white md:text-5xl; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* AI-style blue cover background for project images */
+.ai-cover { position: relative; isolation: isolate;
+  background:
+    radial-gradient(circle at 78% 15%, color-mix(in srgb, var(--h1, #4f7cff) 55%, transparent), transparent 55%),
+    radial-gradient(circle at 12% 95%, color-mix(in srgb, var(--h2, #22d3ee) 40%, transparent), transparent 55%),
+    linear-gradient(135deg, #0b1f66 0%, #1d3fa8 55%, #2b2f8f 100%); }
+.ai-cover::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .35;
+  background-image: linear-gradient(rgba(147,197,253,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(147,197,253,.35) 1px, transparent 1px);
+  background-size: 22px 22px; -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 85%); mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 85%); }
+.ai-cover img { filter: drop-shadow(0 10px 22px rgba(2,8,40,.55)); border-radius: .5rem; }
